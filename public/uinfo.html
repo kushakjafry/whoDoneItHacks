@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<title>Lost Pet Info</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/whole.css">
+<link rel="stylesheet" href="./css/uinfo.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body>
+
+<!-- Navbar -->
+    <div class="w3-top">
+      <div class="w3-bar w3-black w3-card">
+        <a
+          class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+          href="javascript:void(0)"
+          onclick="myFunction()"
+          title="Toggle Navigation Menu"
+          ><i class="fa fa-bars"></i
+        ></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a
+          href="#band"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+          >MISSION</a
+        >
+        <a
+          href="./uinfo.html"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+          >Add Lost Pet</a
+        >
+        <a
+          href="#tour"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+          >Pets Bidding</a
+        >
+        <a
+          href="#contact"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+          >CONTACT</a
+        >
+        <a
+          href="javascript:void(0)"
+          onclick="document.getElementById('signinmodal').style.display='block'"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right"
+          >Sign-in</a
+        >
+        <a
+          href="javascript:void(0)"
+          onclick="document.getElementById('signupmodal').style.display='block'"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right"
+          >SignUp</a
+        >
+        <a
+          href="javascript:void(0)"
+          class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right"
+          style="display: none"
+          >Logout</a
+        >
+      </div>
+    </div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
+  <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TOUR</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <!-- Automatic Slideshow Images -->
+
+
+
+  <div class="title">
+    <h1>Lost Pet Details Form</h1>
+  </div>
+
+<div style="margin-left: 70px; margin-right: 70px;">
+            <form id='submitForm' onsubmit="submitPet(event)">
+              <div class="w3-row-padding" style="margin: 0 -16px 8px -16px">
+                <div class="w3-half">
+                  <input
+                    class="w3-input w3-border"
+                    type="text"
+                    placeholder="Name of Pet"
+                    required
+                    name="name"
+                    id="name"
+                  />
+                </div>
+                <div class="w3-half">
+                  <input
+                    class="w3-input w3-border"
+                    type="text"
+                    placeholder="Gender of Pet"
+                    required
+                    name="gender"
+                    id="gender"
+                  />
+                </div>
+                </div>
+                <div class="w3-row-padding" style="margin: 0 -16px 8px -16px">
+                <div class="w3-half">
+                  <input
+                    class="w3-input w3-border"
+                    type="text"
+                    placeholder="Lost Date"
+                    required
+                    name="lostDate"
+                    id="lostDate"
+                  />
+                </div>
+                <div class="w3-half">
+                  <input
+                    class="w3-input w3-border"
+                    type="text"
+                    placeholder="Location"
+                    required
+                    name="location"
+                    id="location"
+                  />
+                </div>
+                </div>
+                <div class="w3-row-padding" style="margin: 0 -16px 8px -16px">
+                <div class="w3-half">
+                  <input
+                    class="w3-input w3-border"
+                    type="text"
+                    placeholder="About"
+                    required
+                    name="about"
+                    id="about"
+                  />
+                </div>
+                <div class="w3-half">
+                   <input type="file" id="myFile" name="Upload Image of Pet">
+                </div>
+              </div>
+              <button
+                class="w3-button w3-black w3-section w3-right"
+                type="submit"
+              >
+                Add Pet
+              </button>
+            </form>
+
+
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var user = '';
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 4000);
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+function submitPet(event){
+  let name = document.getElementById('name').value;
+  let gender = document.getElementById('gender').value;
+  let lostDate = document.getElementById('lostDate').value;
+  let location = document.getElementById('location').value;
+  let about = document.getElementById('about').value;
+  let file = document.getElementById('myFile').files[0];
+  const formData = new FormData();
+  formData.append("data", JSON.stringify({
+    name,
+    characteristics:{
+      gender,
+      lostDate,
+      location
+    },
+    about
+   }));
+  formData.append("files.image", file);
+  event.preventDefault();
+  fetch('http://localhost:1337/pets',{
+    method: 'POST',
+    headers:{
+      'Content-Type':'application/json',
+      "authorization" : `Bearer ${user.jwt}`
+    },
+    body:formData
+  }).then(response => response.json().then(data => {
+    console.log(data);
+  }))
+}
+</script>
+
+</body>
+</html>

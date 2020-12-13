@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pets",
+  "info": {
+    "name": "Pet",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "characteristics": {
+      "type": "json"
+    },
+    "about": {
+      "type": "richtext"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "pets"
+    },
+    "sold": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    }
+  }
+}
